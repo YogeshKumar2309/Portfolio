@@ -1,29 +1,29 @@
 import React from "react";
-import Header from "./componets/Header";
-import Container from "./componets/Container";
-import About from "./componets/About";
-import Projects from "./componets/Projects";
-import Skills from "./componets/Skills";
-import Education from "./componets/Education";
-import Hobbies from "./componets/Hobbies";
-import Activities from "./componets/Activities";
-import Contact from "./componets/Contact";  
-
+import { Route, Routes } from "react-router-dom";
+import HomeLayout from "./componets/common/layout/HomeLayout";
+import Home from "./pages/home/Home";
+import About from "./pages/about/About";
+import Projects from "./pages/projects/Projects";
+import Certificate from "./pages/certificate/Certificate";
+import Resume from "./pages/resume/Resume";
+import Contect from "./pages/contact/Contact";
+import PageNotFound from "./pages/page-not-found/PageNotFound";
 
 const App = () => {
   return (
     <>
-      <Container>
-        <Header />
-        <About />
-        <Projects />
-        <Skills />
-        <Education />
-        <Hobbies />
-        <Activities />
-        <Contact />
-      </Container>
-      {/* working the project branch */}
+      <Routes>
+        <Route path="/" element={<HomeLayout />}>
+          <Route path="" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="certificate" element={<Certificate />} />
+          <Route path="resume" element={<Resume />} />
+          <Route path="contect" element={<Contect />} />
+        </Route>
+        
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </>
   );
 };
