@@ -20,7 +20,7 @@ const App = () => {
           <Route path="certificate" element={<Certificate />} />
           <Route path="resume" element={<Resume />} />
           <Route path="contact" element={<Contect />} />
-        </Route>
+        </Route>        
         
         <Route path="*" element={<PageNotFound />} />
       </Routes>
