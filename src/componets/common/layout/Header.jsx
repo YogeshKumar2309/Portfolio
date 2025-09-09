@@ -14,7 +14,7 @@ const Header = () => {
     { path: "/projects", label: "PROJECTS" },
     { path: "/certificate", label: "CERTIFICATE" },
     { path: "/resume", label: "RESUME" },
-    { path: "/contect", label: "CONTECT" },
+    { path: "/contact", label: "CONTACT" },
   ];
 
   return (
@@ -28,13 +28,13 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="space-x-10 text-sm font-light">
+        <div className="space-x-10 text-sm font-light mr-16 ">
           {menuLinks.map((link, idx) => (
             <NavLink
               key={idx}
               to={link.path}
               className={({ isActive }) =>
-                isActive ? "text-[#9de40f] underline underline-offset-4" : ""
+                isActive ? "text-[#9de40f] underline underline-offset-4" : "text-white hover:text-[#9de40f]"
               }
               style={({ isActive }) =>
                 isActive ? { textDecorationColor: "white" } : {}
@@ -44,7 +44,7 @@ const Header = () => {
             </NavLink>
           ))}
         </div>
-        <div className=""></div>
+       
       </div>
 
       {/* Mobile Header */}

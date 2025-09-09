@@ -50,8 +50,8 @@ const SectionOne = () => {
         </div>
       </div>
 
-      <div className="right flex-1 hidden lg:block w-1/2">
-        <div className=" w-63 h-63  rounded-full my-4 overflow-hidden flex items-center justify-center ms-40">
+      <div className="right flex-1 hidden lg:block w-1/2 ">
+        <div className=" w-63 h-63  rounded-full my-4 overflow-hidden flex  justify-center ms-50">
         <img
           src={yogesh}
           alt="Profile"
