@@ -1,35 +1,62 @@
-// Step 1: Required packages
 import express from "express";
 import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import Message from "./msg.model.js";
 
-// Step 2: Create Express app
+dotenv.config();
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ;
 
-// Step 3: CORS Configuration
+mongoose
+
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
+
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://your-frontend-domain.com"], // ✅ Allowed origins
-  methods: ["GET", "POST", "PUT", "DELETE"], // ✅ Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // ✅ Allowed headers
-  credentials: true, // ✅ Enable cookies or Authorization headers
+  origin: process.env.FRONTEND_DOMAIN,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 };
 
-// Apply CORS middleware
 app.use(cors(corsOptions));
+app.use(express.json()); // JSON request body parse
 
-// Step 4: Middleware
-app.use(express.json()); // JSON request body parse करने के लिए
 
-// Step 5: Sample routes
-app.get("/", (req, res) => {
-  res.send("Server is running with CORS enabled!");
+app.post("/api/contact", async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+    console.log(name, email, subject, message);
+    
+    const msg = await Message.create({
+      name,
+      email,
+      subject,
+      message,
+    });
+   
+    await msg.save();
+     res.json({
+      success: true,
+      message: "Message sent successfully!",
+    })
+    
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Errro!",
+    });
+  }
 });
 
-app.get("/api/data", (req, res) => {
-  res.json({ message: "Hello from backend!" });
-});
-
-// Step 6: Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -1,7 +1,53 @@
 import React from "react";
 import Layout from "../../componets/contact/Layout";
+import { useState } from "react";
+
+
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const subject = form.subject.value;
+    const message = form.message.value;
+    setFormData({
+      name,
+      email,
+      subject,
+      message,
+    });
+
+    console.log(formData);
+
+
+
+      const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      // .then((res) => res.json())
+      // .then((data) => {
+      //   console.log(data);
+      // });
+
+ 
+  };
+
+   
+
+ 
   return (
     <Layout>
       <div className="flex flex-col md:flex-row gap-10">
@@ -30,7 +76,9 @@ const Contact = () => {
               className="block text-center md:text-left p-3 rounded-lg bg-white/10 hover:bg-white/20 transition"
             >
               <span className="font-semibold">Instagram:</span>
-              <span className="ms-2 text-lime-300 underline">@YogeshWebDev</span>
+              <span className="ms-2 text-lime-300 underline">
+                @YogeshWebDev
+              </span>
             </a>
 
             <a
@@ -50,7 +98,7 @@ const Contact = () => {
 
         {/* RIGHT SIDE: Contact Form */}
         <div className="right md:w-1/2 bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleOnSubmit}>
             <div className="w-full rounded-full py-2 text-center font-bold text-2xl text-lime-900 dark:text-lime-400 border-b-2 mb-4">
               Contact Form
             </div>
@@ -99,7 +147,10 @@ const Contact = () => {
 
             {/* Message */}
             <div className="flex flex-col md:flex-row items-start gap-4">
-              <label htmlFor="message" className="w-full md:w-1/4 font-medium mt-2">
+              <label
+                htmlFor="message"
+                className="w-full md:w-1/4 font-medium mt-2"
+              >
                 Message:
               </label>
               <textarea

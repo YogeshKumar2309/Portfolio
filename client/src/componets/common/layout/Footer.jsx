@@ -61,7 +61,7 @@ const Footer = () => {
           <div className="flex space-x-6 mt-4">
             {/* GitHub */}
             <Link
-              to="https://github.com/yourusername"
+              to="https://github.com/YogeshKumar2309"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -83,7 +83,7 @@ const Footer = () => {
 
             {/* Instagram */}
             <Link
-              to="https://instagram.com/yourusername"
+              to="https://instagram.com/yogeshwebdev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-pink-500 transition-colors"
