@@ -9,6 +9,7 @@ const Header = () => {
   };
 
   const menuLinks = [
+    { path: "", label: "" },
     { path: "/", label: "HOME" },
     { path: "/about", label: "ABOUT" },
     { path: "/projects", label: "PROJECTS" },
@@ -72,8 +73,7 @@ const Header = () => {
                       ? "text-[#9de40f] underline underline-offset-4"
                       : "text-white"
                   }
-                  onClick={() => setIsMenuOpen(false)} // Menu close on link click
-                >
+                  onClick={() => setIsMenuOpen(false)}                 >
                   {link.label}
                 </NavLink>
               ))}
