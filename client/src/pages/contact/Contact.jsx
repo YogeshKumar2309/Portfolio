@@ -1,53 +1,44 @@
 import React from "react";
 import Layout from "../../componets/contact/Layout";
 import { useState } from "react";
-
-
+import { useForm } from "react-hook-form";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [loading, setLoading] = useState(false);
 
-  const handleOnSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const subject = form.subject.value;
-    const message = form.message.value;
-    setFormData({
-      name,
-      email,
-      subject,
-      message,
-    });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-    console.log(formData);
+  const onSubmit = async (data) => {
+    setLoading(true);
 
-
-
+    try {
       const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      // .then((res) => res.json())
-      // .then((data) => {
-      //   console.log(data);
-      // });
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
- 
+      if (res.ok) {
+        const result = await res.json();
+        console.log("Server response", result);
+        reset(data);
+        setLoading(false);
+        alert("Message send successfully!");
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(flase);
+      alert("Failed to send message ! Try again");
+    }
   };
 
-   
-
- 
   return (
     <Layout>
       <div className="flex flex-col md:flex-row gap-10">
@@ -97,77 +88,97 @@ const Contact = () => {
         </div>
 
         {/* RIGHT SIDE: Contact Form */}
-        <div className="right md:w-1/2 bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
-          <form className="space-y-6" onSubmit={handleOnSubmit}>
-            <div className="w-full rounded-full py-2 text-center font-bold text-2xl text-lime-900 dark:text-lime-400 border-b-2 mb-4">
+        <div className="right md:w-1/2 bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+            <div className="w-full text-center font-bold text-2xl text-lime-900 dark:text-lime-400 border-b-2 pb-2 mb-6">
               Contact Form
             </div>
 
             {/* Name */}
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <label htmlFor="name" className="w-full md:w-1/4 font-medium">
-                Name:
-              </label>
+            <div className="flex flex-col gap-2">
+     
               <input
+                {...register("name", { required: "Name is required" })}
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Enter Your Name"
-                className="bg-gray-100 dark:bg-black text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 w-full md:w-3/4 rounded-full py-2 px-4 outline-none focus:border-lime-500 transition"
+                className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 w-full rounded-full py-2 px-4 outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500 transition"
               />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
 
             {/* Email */}
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <label htmlFor="email" className="w-full md:w-1/4 font-medium">
-                Email:
-              </label>
+            <div className="flex flex-col gap-2">
+         
               <input
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email address",
+                  },
+                })}
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Enter Your Email"
-                className="bg-gray-100 dark:bg-black text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 w-full md:w-3/4 rounded-full py-2 px-4 outline-none focus:border-lime-500 transition"
+                className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 w-full rounded-full py-2 px-4 outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500 transition"
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             {/* Subject */}
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <label htmlFor="subject" className="w-full md:w-1/4 font-medium">
-                Subject:
-              </label>
+            <div className="flex flex-col gap-2">
+       
               <input
+                {...register("subject", { required: "Subject is required" })}
                 type="text"
                 id="subject"
                 name="subject"
                 placeholder="Enter Subject"
-                className="bg-gray-100 dark:bg-black text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 w-full md:w-3/4 rounded-full py-2 px-4 outline-none focus:border-lime-500 transition"
+                className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 w-full rounded-full py-2 px-4 outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500 transition"
               />
+              {errors.subject && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.subject.message}
+                </p>
+              )}
             </div>
 
             {/* Message */}
-            <div className="flex flex-col md:flex-row items-start gap-4">
-              <label
-                htmlFor="message"
-                className="w-full md:w-1/4 font-medium mt-2"
-              >
-                Message:
-              </label>
+            <div className="flex flex-col gap-2">
+            
               <textarea
+                {...register("message", { required: "Message is required" })}
                 id="message"
                 name="message"
                 placeholder="Enter Your Message"
-                className="bg-gray-100 dark:bg-black text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 w-full md:w-3/4 rounded-2xl py-2 px-4 outline-none focus:border-lime-500 transition"
-                rows="4"
+                rows="5"
+                className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-300 dark:border-gray-600 w-full rounded-2xl py-2 px-4 outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500 transition"
               ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.message.message}
+                </p>
+              )}
             </div>
 
             {/* Submit Button */}
             <div className="flex justify-center">
               <input
+                disabled={loading}
                 type="submit"
-                value="Send Message"
-                className="bg-lime-700 text-white font-semibold w-full rounded-full py-2 hover:bg-lime-500 hover:shadow-lg hover:shadow-lime-500/50 cursor-pointer transition"
+                value={loading ? "Sending..." : "Send Message"}
+                className="bg-lime-700 text-white font-semibold w-full md:w-1/2 rounded-full py-2 hover:bg-lime-500 hover:shadow-lg hover:shadow-lime-500/50 cursor-pointer transition"
               />
             </div>
           </form>

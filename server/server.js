@@ -33,7 +33,6 @@ app.use(express.json()); // JSON request body parse
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
-    console.log(name, email, subject, message);
     
     const msg = await Message.create({
       name,
