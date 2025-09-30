@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <div className="text-center my-5 mx-7 lg:mx-8 ">
         <Button text="Projects" />
 
-        <div className="grid lg:grid-cols-2">{children}</div>
+        <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">{children}</div>
       </div>
     </section>
   );

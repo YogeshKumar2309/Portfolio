@@ -6,9 +6,9 @@ import React from "react";
 
 const CertificateTemp = ({ pdf, name, issueDate, description }) => {
   return (
-    <div className="my-5 w-full max-w-sm bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+    <div className="my-5 md:w-[30vw] w-full bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
       {/* Certificate iframe preview - styled like an image */}
-      <div className="relative w-full h-64 sm:h-72 bg-gray-50 border-b">
+      <div className="relative h-64 sm:h-72 bg-gray-50 border-b">
         <iframe
           src={`${pdf}#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrolling=no`}
           width="100%"

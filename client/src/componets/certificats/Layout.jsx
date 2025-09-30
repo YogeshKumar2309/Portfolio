@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
         <div className="text-center my-5">
           <Button text="my certificate" />
         </div>
-        <div className="flex gap-6 justify-center flex-wrap max-w-6xl mx-auto px-4">
+        <div className="flex gap-6 justify-center flex-wrap  mx-auto px-4">
           {children}
         </div>
       </div>

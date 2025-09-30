@@ -11,7 +11,6 @@ const certificates = [
     issueDate: "August 2025",
     description: "Completed a full MERN stack course with practical projects.",
   },
- 
 ];
 
 const Certificate = () => {

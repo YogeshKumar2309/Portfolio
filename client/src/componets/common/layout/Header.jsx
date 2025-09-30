@@ -49,10 +49,10 @@ const Header = () => {
       </div>
 
       {/* Mobile Header */}
-      <div className="flex lg:hidden w-full justify-between items-center mx-6 my-2">
+      <div className="flex lg:hidden w-full justify-between items-center pr-8 my-2">
         <div className="flex lg:hidden w-full justify-between items-center mx-6 my-2">
           <div className="text-lg font-extrabold tracking-wide text-white">
-            Yogesh's PORTO
+           PORTO
             <span className="text-[#9de40f]">///</span>O
           </div>
         </div>

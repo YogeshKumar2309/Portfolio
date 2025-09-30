@@ -1,6 +1,4 @@
 import React from 'react';
-import yogeshAbout from "../../../public/images/yogeshAbout.jpg";
-
 // About Component
 const AboutSection = () => {
   return (
@@ -8,7 +6,7 @@ const AboutSection = () => {
       {/* Left: Image */}
       <div className="flex justify-center lg:justify-start lg:w-1/2">
         <img
-          src={yogeshAbout}
+          src="/images/yk.png"
           alt="Yogesh Kumar"
           className="w-80 h-80 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl"
         />

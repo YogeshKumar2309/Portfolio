@@ -1,7 +1,6 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import arrow from "../../../public/logo/arrow.png";
-import yogesh from "../../../public/images/yogesh.png";
 
 const SectionOne = () => {
   return (
@@ -11,7 +10,7 @@ const SectionOne = () => {
           <div className="flex flex-col justify-center items-center">
             <div className="lg:hidden w-32 h-32  rounded-full my-4 overflow-hidden flex items-center justify-center">
               <img
-                src={yogesh}
+                src="/images/yogesh.png"
                 alt="Profile"
                 className="max-w-full max-h-full object-contain"
               />
@@ -25,14 +24,14 @@ const SectionOne = () => {
             />
           </div>
 
-          <div className="flex flex-col lg:ms-35 ">
+          <div className="flex flex-col lg:ms-35">
             <div className="flex relative">
-              <div className="text-4xl lg:text-[42px]  mt-6  font-bold ">
+              <div className="text-2xl lg:text-[42px]  mt-6  font-bold ">
                 <p className="text-[#9de40f] ">A Creative</p>
                 <p className="font-bold text-outline">MERN Stack Developer</p>
               </div>
 
-              <div className="w-16  h-16 absolute top-10 left-93 lg:w-20 lg:h-20 lg:left-109 lg:top-8">
+              <div className="w-16  h-16 absolute top-8 left-63 lg:w-20 lg:h-20 lg:left-109 lg:top-8">
                 <img
                   src={arrow}
                   alt=""
@@ -41,7 +40,7 @@ const SectionOne = () => {
               </div>
             </div>
 
-            <div className="w-[80vw] lg:w-full mt-2">
+            <div className="w-[80vw] lg:w-full mt-2 text-xs font-extralight lg:text-sm lg:mt-4">
               MERN stack developers leverage modern frameworks and powerful
               technologies to craft dynamic, scalable, and user-friendly web
               applications.
@@ -53,7 +52,7 @@ const SectionOne = () => {
       <div className="right flex-1 hidden lg:block w-1/2 ">
         <div className=" w-63 h-63  rounded-full my-4 overflow-hidden flex  justify-center ms-50">
         <img
-          src={yogesh}
+          src="/images/yogesh.png"
           alt="Profile"
           className="max-w-full max-h-full object-contain"
         /></div>

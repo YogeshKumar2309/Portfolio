@@ -34,25 +34,17 @@ const Resume = () => {
           "IoT-based project using Arduino and sensors integrated with a MERN stack web dashboard to monitor real-time footfall.",
         link: "http://localhost:3000",
       },
-      {
-        name: "Real-Time People Counting System in Restaurant",
-        description:
-          "IoT-based project using Arduino and sensors integrated with a MERN stack web dashboard to monitor real-time footfall.",
-        link: "https://yogesh.in",
-      },
     ],
     skills: {
       frontend: [
         "React.js",
-        "Redux Toolkit",
         "Tailwind CSS",
-        "Shadcn",
         "daisyUI",
         "JavaScript (ES6)",
         "CSS3",
         "HTML5",
       ],
-      backend: ["Node.js", "Express.js", "MongoDB", "SQL"],
+      backend: ["Node.js", "Express.js", "MongoDB", "SQL", "Mongoose"],
       tools: [
         "Git",
         "GitHub",
