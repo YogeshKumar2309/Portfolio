@@ -58,13 +58,13 @@ const Footer = () => {
         {/* Social Links Section */}
         <div className="flex flex-col items-center md:items-start">
           <h3 className="text-lg font-bold text-gray-200">Follow Me</h3>
-          <div className="flex space-x-6 mt-4">
-            {/* GitHub */}
+          <div className="flex mt-4">
+          {/* GitHub */}
             <Link
               to="https://github.com/YogeshKumar2309"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 hover:text-white transition-colors mr-6"
               aria-label="GitHub Profile"
             >
               <FaGithub size={24} />
@@ -75,7 +75,7 @@ const Footer = () => {
               to="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-[#0077b5] transition-colors"
+              className="text-gray-400 hover:text-[#0077b5] transition-colors mr-6"
               aria-label="LinkedIn Profile"
             >
               <FaLinkedin size={24} />
@@ -86,7 +86,7 @@ const Footer = () => {
               to="https://instagram.com/yogeshwebdev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-pink-500 transition-colors"
+              className="text-gray-400 hover:text-pink-500 transition-colors mr-6"
               aria-label="Instagram Profile"
             >
               <FaInstagram size={24} />

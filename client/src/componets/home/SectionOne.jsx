@@ -27,7 +27,7 @@ const SectionOne = () => {
           <div className="flex flex-col lg:ms-35">
             <div className="flex relative">
               <div className="text-2xl lg:text-[42px]  mt-6  font-bold ">
-                <p className="text-[#9de40f] ">A Creative</p>
+                <p className="text-[#9de40f] sm:mb-4">A Creative</p>
                 <p className="font-bold text-outline">MERN Stack Developer</p>
               </div>
 
