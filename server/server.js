@@ -29,7 +29,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json()); // JSON request body parse
 
-app.get("/api/contact", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const messages = await Message.find();
     res.json(messages);
