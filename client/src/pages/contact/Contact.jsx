@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../componets/contact/Layout";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -15,9 +16,8 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     setLoading(true);
-
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`${API_BASE}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,15 +26,13 @@ const Contact = () => {
       });
 
       if (res.ok) {
-        const result = await res.json();
-        console.log("Server response", result);
-        reset(data);
+        reset();
         setLoading(false);
         alert("Message send successfully!");
       }
     } catch (error) {
       console.log(error);
-      setLoading(flase);
+      setLoading(false);
       alert("Failed to send message ! Try again");
     }
   };

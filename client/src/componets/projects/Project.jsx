@@ -9,7 +9,7 @@ const Project = ({ title, img, desc, link, id, technologies, features, status, d
         <img 
           src={img} 
           alt={title} 
-          className="h-48 md:h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+          className="h-48 sm:h-120 w-full object-cover transition-transform duration-300 group-hover:scale-105" 
         />
         
         {/* Status Badge */}

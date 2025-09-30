@@ -1,10 +1,47 @@
 import React from "react";
 import Project from "../../componets/projects/Project";
 import Layout from "../../componets/projects/Layout";
-import yogeshAbout from "../../../public/images/yogeshAbout.jpg";
 
 const projects = [
-    {
+  {
+    id: 0,
+    title: "Dessert shop MERN App",
+    img: "/images/dessertsShop.png",
+    desc: "A comprehensive e-commerce platform built with MERN stack featuring user authentication, product catalog, shopping cart, payment integration with Stripe, order management, and responsive design. Includes admin dashboard for inventory management.",
+    link: "https://live-people-counting.vercel.app/",
+    technologies: ["MongoDB", "Mongoose", "Express.js", "React", "Node.js"],
+    features: [
+      "User Authentication",
+      "Admin Dashboard",
+      "Product List",
+      "Shopping Cart",
+      "Payment Integration",
+      "Order Tracking",
+    ],
+    status: "In Progress",
+    duration: "12 days",
+    github: "https://github.com/yogesh/ecommerce-mern",
+  },
+  {
+    id: 1,
+    title: "Dessert shop MERN App",
+    img: "/images/blog.png",
+    desc: "A comprehensive e-commerce platform built with MERN stack featuring user authentication, product catalog, shopping cart, payment integration with Stripe, order management, and responsive design. Includes admin dashboard for inventory management.",
+    link: "https://frontend-o3z17lc50-yogesh-kumars-projects-b8b35247.vercel.app/",
+    technologies: ["MongoDB", "Mongoose", "Express.js", "React", "Node.js"],
+    features: [
+      "User Authentication",
+      "Admin Dashboard",
+      "Product List",
+      "Shopping Cart",
+      "Payment Integration",
+      "Order Tracking",
+    ],
+    status: "In Progress",
+    duration: "12 days",
+    github: "https://github.com/yogesh/ecommerce-mern",
+  },
+  {
     id: 3,
     title: "Diary",
     img: "/images/Diary.png",
@@ -30,51 +67,6 @@ const projects = [
     duration: "12 Days",
     github: "https://github.com/YogeshKumar2309/Diary",
   },
-  {
-    id: 1,
-    title: "E-Commerce MERN App",
-    img: yogeshAbout,
-    desc: "A comprehensive e-commerce platform built with MERN stack featuring user authentication, product catalog, shopping cart, payment integration with Stripe, order management, and responsive design. Includes admin dashboard for inventory management.",
-    link: "https://frontend-o3z17lc50-yogesh-kumars-projects-b8b35247.vercel.app/",
-    technologies: ["MongoDB", "Express.js", "React", "Node.js", "Stripe API"],
-    features: [
-      "User Authentication",
-      "Shopping Cart",
-      "Payment Integration",
-      "Admin Dashboard",
-      "Order Tracking",
-    ],
-    status: "Completed",
-    duration: "12 days",
-    github: "https://github.com/yogesh/ecommerce-mern",
-  },
-  {
-    id: 2,
-    title: "Social Media MERN App",
-    img: yogeshAbout,
-    desc: "A full-featured social media application with real-time messaging, post creation, image uploads, user profiles, friend system, and news feed. Built with Socket.io for real-time communication and Cloudinary for image management.",
-    link: "https://frontend-o3z17lc50-yogesh-kumars-projects-b8b35247.vercel.app/",
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "Socket.io",
-      "Cloudinary",
-    ],
-    features: [
-      "Real-time Chat",
-      "Post Creation",
-      "Image Upload",
-      "User Profiles",
-      "Friend System",
-      "News Feed",
-    ],
-    status: "In Progress",
-    duration: "4 months",
-    github: "https://github.com/yogesh/social-media-mern",
-  },
-
 ];
 
 const Projects = () => {
