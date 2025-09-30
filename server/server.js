@@ -29,6 +29,19 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json()); // JSON request body parse
 
+app.get("/api/contact", async (req, res) => {
+  try {
+    const messages = await Message.find();
+    res.json(messages);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Errro!",
+    });
+  }
+});
+
 
 app.post("/api/contact", async (req, res) => {
   try {
